@@ -1,5 +1,5 @@
 from exec import *
-import time
+
 
 G_constant = 9.8
 WIN_HEIGHT, WIN_WIDTH = 500, 700
@@ -7,12 +7,15 @@ WIN_HEIGHT, WIN_WIDTH = 500, 700
 
 def main():
 
-    obj1 = object(12)
+    obj_arr = list()
+    obj1 = object("m")
     floor = floor_obj(WIN_WIDTH, WIN_HEIGHT * 0.1, (0, 0, 0), WIN_HEIGHT - WIN_HEIGHT*0.1)
 
+    obj_arr.append(obj1)
+    obj1.start_moving()
+
     print(f"the mass is {obj1.mass}, and the forces on this object are: ")
-    for i in range(0, len(obj1.y_axis_forces)):
-        print(obj1.y_axis_forces[i])
+    print(f"And it's equation is {obj1.get_equation('y')}")
 
 
     # currently, the values looks funny.
@@ -21,6 +24,12 @@ def main():
     """while True:
         current_time = time.time()
         print("time: %f" % current_time)"""
+
+
+def update_location(current_time, obj_arr):
+
+    for obj in obj_arr:
+        acc = obj.get_acc()
 
 
 if __name__ == "__main__":
