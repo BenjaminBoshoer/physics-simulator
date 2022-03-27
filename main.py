@@ -21,7 +21,7 @@ def main():
     """while True:
         current_time = time.time()
         print("time: %f" % current_time)"""
-
+        #test
 
 def update_location(current_time, obj_arr):
     for obj in obj_arr:
